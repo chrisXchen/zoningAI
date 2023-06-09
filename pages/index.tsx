@@ -27,7 +27,7 @@ export default function Home() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        messages: updatedMessages
+        text: message.content
       })
     });
 
@@ -36,7 +36,7 @@ export default function Home() {
       throw new Error(response.statusText);
     }
 
-    const data = response.body;
+    const data = await response.json();
 
     if (!data) {
       return;
@@ -44,43 +44,21 @@ export default function Home() {
 
     setLoading(false);
 
-    const reader = data.getReader();
-    const decoder = new TextDecoder();
-    let done = false;
-    let isFirst = true;
-
-    while (!done) {
-      const { value, done: doneReading } = await reader.read();
-      done = doneReading;
-      const chunkValue = decoder.decode(value);
-
-      if (isFirst) {
-        isFirst = false;
-        setMessages((messages) => [
-          ...messages,
-          {
-            role: "assistant",
-            content: chunkValue
-          }
-        ]);
-      } else {
-        setMessages((messages) => {
-          const lastMessage = messages[messages.length - 1];
-          const updatedMessage = {
-            ...lastMessage,
-            content: lastMessage.content + chunkValue
-          };
-          return [...messages.slice(0, -1), updatedMessage];
-        });
+    setMessages((messages) => [
+      ...messages,
+      {
+        role: "assistant",
+        content: data.text
       }
-    }
+    ]);
   };
+
 
   const handleReset = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hi there! I'm Chatbot UI, an AI assistant. I can help you with things like answering questions, providing information, and helping with tasks. How can I help you?`
+        content: `Hi there! I'm Land Laws AI, an assistant knowledgable in the zoning laws for your area. Don't bother with reading through those dense government documents, just ask me your questions regarding zoning information in Howell, NJ. I have access to plenty of those government documents and can parse them super easy for you. How can I help you?`
       }
     ]);
   };
@@ -93,7 +71,7 @@ export default function Home() {
     setMessages([
       {
         role: "assistant",
-        content: `Hi there! I'm Chatbot UI, an AI assistant. I can help you with things like answering questions, providing information, and helping with tasks. How can I help you?`
+        content: `Hi there! I'm Land Laws AI, an assistant knowledgable in the zoning laws for your area. Don't bother with reading through those dense government documents, just ask me your questions regarding zoning information in Howell, NJ. I have access to plenty of those government documents and can parse them super easy for you. How can I help you?`
       }
     ]);
   }, []);
@@ -101,10 +79,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Chatbot UI</title>
+        <title>Land Laws AI</title>
         <meta
           name="description"
-          content="A simple chatbot starter kit for OpenAI's chat model using Next.js, TypeScript, and Tailwind CSS."
+          content="A simple chatbot for OpenAI's chat model and government zoning guidelines for Howell, New Jersey."
         />
         <meta
           name="viewport"

@@ -1,36 +1,27 @@
-import { Message } from "@/types";
-import { OpenAIStream } from "@/utils";
+import { NowRequest, NowResponse } from '@vercel/node'
+import { supabaseClient } from '../../utils/supabaseClient'
 
 export const config = {
   runtime: "edge"
-};
+}
 
-const handler = async (req: Request): Promise<Response> => {
-  try {
-    const { messages } = (await req.json()) as {
-      messages: Message[];
-    };
+export default async function handler(req: NowRequest, res: NowResponse) {
+  const d = await req.json()
+  const text = d.text;
 
-    const charLimit = 12000;
-    let charCount = 0;
-    let messagesToSend = [];
+  const { data, error } = await supabaseClient.functions.invoke('ask-custom-data', {
+        body: JSON.stringify({ query: text})
+    });
 
-    for (let i = 0; i < messages.length; i++) {
-      const message = messages[i];
-      if (charCount + message.content.length > charLimit) {
-        break;
-      }
-      charCount += message.content.length;
-      messagesToSend.push(message);
-    }
-
-    const stream = await OpenAIStream(messagesToSend);
-
-    return new Response(stream);
-  } catch (error) {
-    console.error(error);
-    return new Response("Error", { status: 500 });
+  if (error) {
+    return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    })
   }
-};
 
-export default handler;
+  return new Response(JSON.stringify({ text: data.text }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" }
+  })
+}
