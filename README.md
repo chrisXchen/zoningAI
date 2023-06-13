@@ -11,8 +11,6 @@ Land Laws AI implements a simple, chat interface via [Chatbot UI Lite](https://g
 
 Modify the chat interface in `components/Chat`.
 
-Modify the auth interface in `components/Auth`.
-
 Adjust the Supabase edge function call in `pages/api/chat.ts`.
 
 Tweak the assistant prompt in `pages/index.tsx`.
@@ -56,4 +54,3 @@ vercel dev
 **4. Start Building**
 
 You should be able to start chatting with the bot.
-

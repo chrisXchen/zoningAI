@@ -3,17 +3,16 @@ import { FormInput } from "./FormInput";
 import { FormButton } from "./FormButton";
 
 interface Props {
-  onSignup: (email: string, password: string, city: string) => void;
+  onSignin: (email: string, password: string) => void;
 }
 
-export const Signup: FC<Props> = ({ onSignup }) => {
+export const SigninForm: FC<Props> = ({ onSignin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [city, setCity] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSignup(email, password, city);
+    onSignin(email, password);
   }
 
   return (
@@ -32,16 +31,9 @@ export const Signup: FC<Props> = ({ onSignup }) => {
         onChange={e => setPassword(e.target.value)}
         required
       />
-      <FormInput
-        label="City"
-        type="text"
-        value={city}
-        onChange={e => setCity(e.target.value)}
-        required
-      />
       <FormButton type="submit">
-        Sign Up
+        Sign In
       </FormButton>
     </form>
   );
-};
+}
