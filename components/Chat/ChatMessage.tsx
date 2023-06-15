@@ -9,7 +9,7 @@ export const ChatMessage: FC<Props> = ({ message }) => {
   return (
     <div className={`flex flex-col ${message.role === "assistant" ? "items-start" : "items-end"}`}>
       <div
-        className={`flex items-center ${message.role === "assistant" ? "bg-custom-bg-color text-custom-color border-2 border-custom-color-secondary" : "bg-custom-bg-color text-custom-color border-2 border-custom-color-brand"} rounded-2xl px-3 py-2 max-w-[67%] whitespace-pre-wrap`}
+        className={`flex items-center text-xl ${message.role === "assistant" ? "bg-brand-secondary text-full-black border-4 border-full-black shadow-nb-assistant" : "bg-brand-primary text-full-black border-4 border-full-black shadow-nb-user"} rounded-2xl px-3 py-2 max-w-[67%] whitespace-pre-wrap`}
         style={{ overflowWrap: "anywhere" }}
       >
         {message.content}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { Button } from '@supabase/ui';
 
 export default function DisplayProfile({ session }) {
   const supabase = useSupabaseClient();
@@ -89,22 +90,26 @@ export default function DisplayProfile({ session }) {
       </div>
 
       <div>
-        <button
-          className="button primary block"
+        <Button
+          block
+          type="primary"
+          size="medium"
           onClick={() => updateProfile({ city, state })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}
-        </button>
+        </Button>
       </div>
 
       <div>
-        <button
-          className="button block"
+        <Button
+          block
+          type="outline"
+          size="medium"
           onClick={() => supabase.auth.signOut()}
         >
           Sign Out
-        </button>
+        </Button>
       </div>
     </div>
   )

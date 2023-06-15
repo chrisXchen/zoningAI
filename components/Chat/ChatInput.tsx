@@ -48,7 +48,10 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
     <div className="relative">
       <textarea
         ref={textareaRef}
-        className="min-h-[44px] rounded-lg pl-4 pr-12 py-2 w-full bg-custom-bg-color focus:outline-none focus:outline-none focus:ring-1 focus:ring-custom-border-color border-2 border-custom-border-color"
+        className="min-h-[44px] pl-4 pr-12 py-2 w-full text-full-black
+          bg-brand-secondary focus:outline-none focus:outline-none
+          focus:ring-1 focus:ring-full-black border-2
+          border-full-black overflow-auto scrollbar-hide"
         style={{ resize: "none" }}
         placeholder="Type a message..."
         value={content}
@@ -58,7 +61,12 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
       />
 
       <button onClick={() => handleSend()}>
-        <IconArrowUp className="absolute right-2 bottom-10 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-custom-color-brand text-custom-border-color hover:opacity-80" />
+        <IconArrowUp
+          className="absolute right-0 bottom-1.5 h-11 w-11
+            hover:cursor-pointer p-1 bg-brand-primary text-full-black
+            hover:bg-brand-secondary border-2 border-full-black"
+          color="black"
+        />
       </button>
     </div>
   );
