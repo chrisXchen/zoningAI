@@ -20,7 +20,7 @@ export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
       </div>
 
       <div className="flex flex-col rounded-lg px-3 sm:p-4 sm:border-4 border-full-black
-        bg-brand-obnoxious">
+        bg-brand-primary">
         {messages.map((message, index) => (
           <div
             key={index}

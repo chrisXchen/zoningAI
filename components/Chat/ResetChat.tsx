@@ -9,9 +9,9 @@ export const ResetChat: FC<Props> = ({ onReset }) => {
     <div className="flex flex-row items-center">
       <button
         className="text-sm sm:text-base text-full-black font-semibold
-        rounded-lg px-4 py-2 bg-brand-obnoxious hover:bg-brand-secondary
-        focus:outline-none focus:ring-1 focus:ring-neutral-300 border-4
-        border-full-black"
+        rounded-lg px-4 py-2 bg-white hover:bg-black hover:text-white
+        focus:outline-none focus:ring-1 focus:ring-neutral-300 border-2
+        border-full-black shadow-nb-assistant"
         onClick={() => onReset()}
       >
         Reset

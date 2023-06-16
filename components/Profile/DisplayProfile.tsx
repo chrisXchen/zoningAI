@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
-import { Button } from '@supabase/ui';
+import FormButton from '../Form/FormButton';
 
 export default function DisplayProfile({ session }) {
   const supabase = useSupabaseClient();
@@ -12,7 +12,6 @@ export default function DisplayProfile({ session }) {
   async function getProfile() {
     try {
       setLoading(true);
-      console.log(user)
 
       let { data, error, status } = await supabase
         .from("profiles")
@@ -38,7 +37,7 @@ export default function DisplayProfile({ session }) {
 
   useEffect(() => {
     getProfile()
-  }, [session])
+  }, [user])
 
   async function updateProfile({
     city,
@@ -67,49 +66,94 @@ export default function DisplayProfile({ session }) {
   return (
     <div className="form-widget">
       <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <div className="block">
+          <label
+            htmlFor="email"
+            name="email"
+            className="inline-block text-black text-2xl border-2 py-1 border-black
+              px-2 bg-white text-center shadow-nb-assistant
+              rounded-tl-xl rounded-tr-xl rounded-br-xl"
+          >
+            Email
+          </label>
+        </div>
+        <input
+          id="email"
+          type="text"
+          value={user.email}
+          disabled
+          className="text-black text-xl border-2 border-black
+          bg-white bg-opacity-60 px-5 mt-2 shadow-nb-down
+          rounded-bl-xl rounded-br-xl rounded-tr-xl"
+        />
       </div>
       <div>
-        <label htmlFor="city">City</label>
+        <div className="block">
+          <label
+            htmlFor="city"
+            name="city"
+            className="inline-block text-black text-2xl border-2 py-1 border-black
+              px-2 bg-white text-center shadow-nb-assistant
+              rounded-tl-xl rounded-tr-xl rounded-br-xl"
+          >
+            City
+          </label>
+        </div>
         <input
           id="city"
           type="text"
           value={city || ''}
           onChange={(e) => setCity(e.target.value)}
+          className="text-black text-xl border-2 border-black
+          bg-white px-5 mt-2 shadow-nb-down
+          focus:border-black focus:outline-none focus:border-4
+          focus:text-white focus:bg-black
+          rounded-bl-xl rounded-br-xl rounded-tr-xl
+          hover:border-4
+          transition-colors duration-200 ease-in-out"
         />
       </div>
       <div>
-        <label htmlFor="state">State</label>
+        <div className="block">
+          <label
+            htmlFor="state"
+            name="state"
+            className="inline-block text-black text-2xl border-2 py-1 border-black
+              px-2 bg-white text-center shadow-nb-assistant
+              rounded-tl-xl rounded-tr-xl rounded-br-xl"
+          >
+            State
+          </label>
+        </div>
         <input
           id="state"
           type="text"
           value={state || ''}
           onChange={(e) => setState(e.target.value)}
+          className="text-black text-xl border-2 border-black
+          bg-white px-5 mt-2 shadow-nb-down
+          focus:border-black focus:outline-none focus:border-4
+          focus:text-white focus:bg-black
+          rounded-bl-xl rounded-br-xl rounded-tr-xl
+          hover:border-4
+          transition-colors duration-200 ease-in-out"
         />
       </div>
-
-      <div>
-        <Button
-          block
-          type="primary"
-          size="medium"
-          onClick={() => updateProfile({ city, state })}
+      <div className="mt-6">
+        <FormButton
+          onClick={() => updateProfile({city, state})}
           disabled={loading}
-        >
-          {loading ? 'Loading ...' : 'Update'}
-        </Button>
+          buttonText="Update Profile Info"
+          loading={loading}
+        />
       </div>
-
       <div>
-        <Button
-          block
-          type="outline"
-          size="medium"
+        <FormButton
           onClick={() => supabase.auth.signOut()}
-        >
-          Sign Out
-        </Button>
+          disabled={loading}
+          buttonText="Sign Out"
+          loading={loading}
+        />
       </div>
     </div>
   )

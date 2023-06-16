@@ -25,11 +25,20 @@ module.exports = {
       },
       boxShadow: {
         'nb-assistant': '-3px 3px 0 0 rgba(0, 0, 0, 1)',
-        'nb-user': '3px 3px 0 0 rgba(0, 0, 0, 1)'
+        'nb-user': '3px 3px 0 0 rgba(0, 0, 0, 1)',
+        'nb-down': '0 3px 0 0 rgba(0, 0, 0, 1)',
+        'original': '[5px_5px_black]'
       },
+      opacity: {
+        '50':'0.5',
+      }
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      opacity: ['response', 'hover', 'focus', 'placeholder']
+    }
+  },
   plugins: [
     function({ addUtilities }) {
       const newUtilities = {
