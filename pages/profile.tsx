@@ -32,10 +32,9 @@ const ProfilePage: React.FC = () => {
             border-b-2">
             <div className="relative justify-center divide-black grid lg:divide-x-2
               lg:grid-cols-2 lg:px-0 max-h-full md:px-12 overflow-hidden">
-              <div className="flex flex-col bg-brand-tertiary flex-1 lg:py-16 md:flex-none
+              <div className="flex flex-col flex-1 lg:py-16 md:flex-none
                 md:px-28 px-4 py-10 relative sm:justify-center z-10">
-                <div className="flex flex-col rounded-lg px-3 sm:p-4 sm:border-4 border-black
-        bg-brand-primary">
+                <div className="flex flex-col rounded-lg px-3 sm:p-4 ">
                 {user ? (
                   <div className="profile-page min-h-full mb-6">
                     <h2 className="text-black mt-6 text-2xl pb-2

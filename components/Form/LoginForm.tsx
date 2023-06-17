@@ -4,9 +4,10 @@ import FormButton from './FormButton';
 interface Props {
   onLogin: (email: string, password: string) => void;
   buttonText: string;
+  textSize?: string; // optional button text size prop to be passed to FormButton
 }
 
-export const LoginForm: React.FC<Props> = ({ onLogin, buttonText }) => {
+export const LoginForm: React.FC<Props> = ({ onLogin, buttonText, textSize }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -37,13 +38,15 @@ export const LoginForm: React.FC<Props> = ({ onLogin, buttonText }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="text-black focus:outline-none
+              className={`text-black focus:outline-none
                 border-2 border-black w-full appearance-none
                 block border-transparent focus:bg-lila-500
                 focus:border-black focus:ring-black
-                placeholder-black px-3 py-4 sm:text-sm
-                text-xl focus:rounded-t-xl
-                placeholder-opacity-50"
+                placeholder-black px-3 py-4
+                focus:rounded-t-l
+                placeholder-opacity-50
+                ${textSize ? textSize : "sm:text-sm"}
+                `}
             />
           </div>
           <div className="col-span-full">
@@ -56,13 +59,15 @@ export const LoginForm: React.FC<Props> = ({ onLogin, buttonText }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="text-black focus:outline-none
+              className={`text-black focus:outline-none
                 border-2 border-black w-full appearance-none
                 block border-transparent focus:bg-lila-500
                 focus:border-black focus:ring-black
-                placeholder-black px-3 py-4 sm:text-sm
-                text-xl focus:rounded-b-xl
-                placeholder-opacity-50"
+                placeholder-black px-3 py-4
+                focus:rounded-b-l
+                placeholder-opacity-50
+                ${textSize ? textSize : "sm:text-sm"}
+                `}
             />
           </div>
         </div>
@@ -72,6 +77,7 @@ export const LoginForm: React.FC<Props> = ({ onLogin, buttonText }) => {
             disabled={loading}
             buttonText={buttonText}
             loading={loading}
+            textSize={textSize ? textSize : undefined}
           />
         </div>
       </div>

@@ -71,7 +71,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="email"
             name="email"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-white text-center shadow-nb-assistant
+              px-2 bg-brand-primary bg-opacity-80 text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             Email
@@ -83,7 +83,7 @@ export default function DisplayProfile({ session }) {
           value={user.email}
           disabled
           className="text-black text-xl border-2 border-black
-          bg-white bg-opacity-60 px-5 mt-2 shadow-nb-down
+          bg-brand-primary bg-opacity-20 px-5 mt-2 shadow-nb-down
           rounded-bl-xl rounded-br-xl rounded-tr-xl"
         />
       </div>
@@ -93,7 +93,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="city"
             name="city"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-white text-center shadow-nb-assistant
+              px-2 bg-brand-primary bg-opacity-80 text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             City
@@ -119,7 +119,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="state"
             name="state"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-white text-center shadow-nb-assistant
+              px-2 bg-brand-primary bg-opacity-80 text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             State
@@ -145,6 +145,8 @@ export default function DisplayProfile({ session }) {
           disabled={loading}
           buttonText="Update Profile Info"
           loading={loading}
+          textSize="text-m sm:text-l"
+          bgColor="bg-brand-primary bg-opacity-80 hover:bg-opacity-90"
         />
       </div>
       <div>
@@ -153,6 +155,7 @@ export default function DisplayProfile({ session }) {
           disabled={loading}
           buttonText="Sign Out"
           loading={loading}
+          textSize="text-m sm:text-l"
         />
       </div>
     </div>

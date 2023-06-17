@@ -98,7 +98,7 @@ export default function Home() {
         <Navbar />
 
         <div className="flex-1 overflow-auto sm:px-10 pb-4 sm:pb-10">
-          <div className="max-w-[800px] mx-auto mt-4 sm:mt-12">
+          <div className="max-w-[800px] mx-auto mt-4 sm:mt-12 mb-4 sm:mb-8">
             <Chat
               messages={messages}
               loading={loading}
@@ -108,7 +108,9 @@ export default function Home() {
             <div ref={messagesEndRef} />
           </div>
         </div>
-        <Footer />
+          <div className="hidden md:block">
+          <Footer />
+          </div>
       </div>
     </>
   );

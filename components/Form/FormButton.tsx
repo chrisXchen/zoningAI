@@ -6,9 +6,10 @@ interface ButtonProps {
   buttonText: string;
   loading: boolean;
   bgColor?: string; // optional bgColor prop
+  textSize?: string; // optional text size prop
 }
 
-const FormButton: React.FC<ButtonProps> = ({ onClick, disabled, buttonText, loading, bgColor }) => (
+const FormButton: React.FC<ButtonProps> = ({ onClick, disabled, buttonText, loading, bgColor, textSize }) => (
   <button
     onClick={onClick}
     disabled={disabled}
@@ -20,6 +21,7 @@ const FormButton: React.FC<ButtonProps> = ({ onClick, disabled, buttonText, load
           justify-center px-6 py-3 rounded-xl
           shadow-nb-down text-center w-full
           ${bgColor ? bgColor : "bg-white"}
+          ${textSize ? textSize : "sm:text-sm"}
           `}
 
   >

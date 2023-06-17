@@ -48,10 +48,11 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
     <div className="relative">
       <textarea
         ref={textareaRef}
-        className="min-h-[44px] pl-4 pr-12 py-2 w-full text-full-black
-          bg-brand-secondary focus:outline-none focus:outline-none
-          focus:ring-1 focus:ring-full-black focus:bg-white border-2
-          border-full-black overflow-auto scrollbar-hide"
+        className="min-h-[44px] pl-4 pr-12 py-2 w-full text-black
+          bg-brand-tertiary focus:outline-none focus:outline-none
+          focus:ring-1 focus:ring-black focus:bg-white border-2
+          border-full-black overflow-auto scrollbar-hide
+          bg-opacity-60 hover:bg-opacity-20"
         style={{ resize: "none" }}
         placeholder="Type a message..."
         value={content}
