@@ -52,7 +52,7 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
           bg-brand-tertiary focus:outline-none focus:outline-none
           focus:ring-1 focus:ring-black focus:bg-white border-2
           border-full-black overflow-auto scrollbar-hide
-          bg-opacity-60 hover:bg-opacity-20"
+          hover:bg-white bg-opacity-80"
         style={{ resize: "none" }}
         placeholder="Type a message..."
         value={content}

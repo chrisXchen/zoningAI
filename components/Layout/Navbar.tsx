@@ -6,8 +6,8 @@ export const Navbar: FC = ({session}) => {
   const user = useUser();
 
   return (
-    <div className="flex h-[50px] sm:h-[60px] border-b-2 border-full-black
-      py-2 px-2 sm:px-8 items-center justify-between bg-brand-tertiary bg-opacity-80">
+    <div className="flex h-[50px] sm:h-[60px] border-b-4 border-full-black
+      py-2 px-2 sm:px-8 items-center justify-between bg-brand-tertiary">
       <div className="font-bold text-4xl flex items-center">
         <a
           className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl xl:text-4xl"

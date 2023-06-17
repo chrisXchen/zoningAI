@@ -83,10 +83,10 @@ const LoginPage: React.FC = () => {
                                 buttonText="Login"
                                 textSize="text-xl"
                             />
-                            <p className="text-black lg:text-2xl text-sm">
+                            <p className="text-black lg:text-l text-sm">
                                 Forgot password?
                                 <a href="localhost:3000/profile" className="text-black
-                                    lg:text-2xl hover:text-white ml-3 underline">
+                                    lg:text-l hover:text-white ml-2 underline">
                                     Click here to reset.
                                 </a>
                             </p>
@@ -102,26 +102,26 @@ const LoginPage: React.FC = () => {
                                 </div>
                             </div>
                             <div className="flex justify-center relative py-3">
-                                <span className="text-black text-2xl bg-brand-primary
-                                    border-2 border-black px-5 py-1 rounded-lg">
+                                <span className="text-black text-lg bg-brand-primary
+                                            border-2 border-black px-2 rounded-lg">
                                     Looking to join?
                                 </span>
                             </div>
                         </div>
                         <div className="flex flex-col">
                             <div>
-                                <h2 className="text-black lg:text-2xl text-xl">
-                                    Join Architects, Construction Managers, Land Inspectors, Civil Engineers, and tons of others across America who are expediting their Zoning Ordinance research with AI.
-                                </h2>
                                 <div className="space-y-6 py-5">
-                                    <div className="flex flex-col gap-3 sm:flex-row">
-                                        <FormButton
-                                            onClick={switchView}
-                                            disabled={false}
-                                            buttonText="Register"
-                                            loading={false}
-                                            textSize="text-xl"
-                                          />
+                                    <div className="flex justify-center gap-3 sm:flex-row">
+                                        <div className="w-1/2 justify-center items-center">
+                                            <FormButton
+                                                onClick={switchView}
+                                                disabled={false}
+                                                buttonText="Go to Register"
+                                                loading={false}
+                                                textSize="text-xl"
+                                                bgColor="bg-brand-tertiary bg-opacity-80"
+                                              />
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -136,6 +136,7 @@ const LoginPage: React.FC = () => {
                             <LoginForm
                                 onLogin={handleRegister}
                                 buttonText="Register"
+                                textSize="text-xl"
                             />
                         </div>
                         {confirmation &&
@@ -165,13 +166,17 @@ const LoginPage: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="space-y-6">
-                                    <div className="flex flex-col gap-3 sm:flex-row">
-                                        <FormButton
-                                            onClick={switchView}
-                                            disabled={false}
-                                            buttonText="Go To Login"
-                                            loading={false}
-                                          />
+                                    <div className="flex justify-center gap-3 sm:flex-row">
+                                        <div className="w-1/2 justify-center items-center">
+                                            <FormButton
+                                                onClick={switchView}
+                                                disabled={false}
+                                                buttonText="Go to Login"
+                                                loading={false}
+                                                textSize="text-xl"
+                                                bgColor="bg-brand-tertiary bg-opacity-80"
+                                              />
+                                          </div>
                                     </div>
                                 </div>
                             </div>

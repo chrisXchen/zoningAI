@@ -71,7 +71,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="email"
             name="email"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-brand-primary bg-opacity-80 text-center shadow-nb-assistant
+              px-2 bg-brand-primary text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             Email
@@ -83,8 +83,8 @@ export default function DisplayProfile({ session }) {
           value={user.email}
           disabled
           className="text-black text-xl border-2 border-black
-          bg-brand-primary bg-opacity-20 px-5 mt-2 shadow-nb-down
-          rounded-bl-xl rounded-br-xl rounded-tr-xl"
+          bg-brand-primary bg-opacity-50 px-5 mt-2
+          rounded-bl-xl rounded-br-xl rounded-tr-xl w-auto"
         />
       </div>
       <div>
@@ -93,7 +93,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="city"
             name="city"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-brand-primary bg-opacity-80 text-center shadow-nb-assistant
+              px-2 bg-brand-primary text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             City
@@ -105,7 +105,7 @@ export default function DisplayProfile({ session }) {
           value={city || ''}
           onChange={(e) => setCity(e.target.value)}
           className="text-black text-xl border-2 border-black
-          bg-white px-5 mt-2 shadow-nb-down
+          bg-white px-5 mt-2
           focus:border-black focus:outline-none focus:border-4
           focus:text-white focus:bg-black
           rounded-bl-xl rounded-br-xl rounded-tr-xl
@@ -119,7 +119,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="state"
             name="state"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-brand-primary bg-opacity-80 text-center shadow-nb-assistant
+              px-2 bg-brand-primary text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             State
@@ -131,7 +131,7 @@ export default function DisplayProfile({ session }) {
           value={state || ''}
           onChange={(e) => setState(e.target.value)}
           className="text-black text-xl border-2 border-black
-          bg-white px-5 mt-2 shadow-nb-down
+          bg-white px-5 mt-2
           focus:border-black focus:outline-none focus:border-4
           focus:text-white focus:bg-black
           rounded-bl-xl rounded-br-xl rounded-tr-xl
@@ -146,7 +146,8 @@ export default function DisplayProfile({ session }) {
           buttonText="Update Profile Info"
           loading={loading}
           textSize="text-m sm:text-l"
-          bgColor="bg-brand-primary bg-opacity-80 hover:bg-opacity-90"
+          bgColor="bg-brand-tertiary"
+          shadow="shadow-nb-assistant"
         />
       </div>
       <div>
@@ -156,6 +157,7 @@ export default function DisplayProfile({ session }) {
           buttonText="Sign Out"
           loading={loading}
           textSize="text-m sm:text-l"
+          shadow="shadow-nb-assistant"
         />
       </div>
     </div>
