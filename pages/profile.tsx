@@ -28,8 +28,7 @@ const ProfilePage: React.FC = () => {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <section>
-          <div className="border-black 2xl:max-w-7xl mx-auto 2xl:border-x-2
-            border-b-2">
+          <div className="border-black 2xl:max-w-7xl mx-auto 2xl:border-x-2">
             <div className="relative justify-center divide-black grid lg:divide-x-2
               lg:grid-cols-2 lg:px-0 max-h-full md:px-12 overflow-hidden">
               <div className="flex flex-col flex-1 lg:py-16 md:flex-none
@@ -71,8 +70,8 @@ const ProfilePage: React.FC = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }
