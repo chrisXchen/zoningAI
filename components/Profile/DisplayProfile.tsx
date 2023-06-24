@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import FormButton from '../Form/FormButton';
+import Link from 'next/link';
 
 export default function DisplayProfile({ session }) {
   const supabase = useSupabaseClient();
@@ -90,6 +91,28 @@ export default function DisplayProfile({ session }) {
       <div>
         <div className="block">
           <label
+            htmlFor="subscription"
+            name="subscription"
+            className="inline-block text-black text-2xl border-2 py-1 border-black
+              px-2 bg-brand-tertiary text-center shadow-nb-assistant
+              rounded-tl-xl rounded-tr-xl rounded-br-xl"
+          >
+            Subscription
+          </label>
+        </div>
+        <input
+          id="subscription"
+          type="text"
+          value={user.subscription ? user.subscription : "Free"}
+          disabled
+          className="text-black text-xl border-2 border-black
+          bg-brand-tertiary bg-opacity-40 px-5 mt-2
+          rounded-bl-xl rounded-br-xl rounded-tr-xl w-auto"
+        />
+      </div>
+      <div>
+        <div className="block">
+          <label
             htmlFor="city"
             name="city"
             className="inline-block text-black text-2xl border-2 py-1 border-black
@@ -140,6 +163,24 @@ export default function DisplayProfile({ session }) {
         />
       </div>
       <div className="mt-6">
+        <Link
+          href="https://buy.stripe.com/5kAaFlgzX6eg56ocMM"
+          target="_blank"
+          className="text-black focus:outline-none
+          ease-in-out transform transition
+          border-2 border-black duration-200
+          hover:bg-black hover:shadow-none
+          hover:text-white inline-flex items-center
+          justify-center px-6 py-3 rounded-xl
+          text-center w-full text-m sm:text-l
+          bg-brand-tertiary shadow-nb-assistant"
+        >
+        Subscription
+        </Link>
+      </div>
+      {
+      /*
+      <div>
         <FormButton
           onClick={() => updateProfile({city, state})}
           disabled={loading}
@@ -150,6 +191,8 @@ export default function DisplayProfile({ session }) {
           shadow="shadow-nb-assistant"
         />
       </div>
+      */
+    }
       <div>
         <FormButton
           onClick={() => supabase.auth.signOut()}

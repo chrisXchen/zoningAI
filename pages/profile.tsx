@@ -30,7 +30,7 @@ const ProfilePage: React.FC = () => {
         <section>
           <div className="border-black 2xl:max-w-7xl mx-auto 2xl:border-x-2">
             <div className="relative justify-center divide-black grid lg:divide-x-2
-              lg:grid-cols-2 lg:px-0 max-h-full md:px-12 overflow-hidden w-full">
+              lg:grid-cols-1 lg:px-20 max-h-full md:px-12 overflow-hidden w-full">
               <div className="flex flex-col flex-1 lg:py-16 md:flex-none
                 md:px-18 py-10 relative sm:justify-center">
                 <div className="flex flex-col rounded-lg sm:p-4 ">
@@ -53,20 +53,7 @@ const ProfilePage: React.FC = () => {
                 )}
                 </div>
               </div>
-              <div className="flex flex-col bg-brand-tertiary flex-1 lg:py-16 md:flex-none
-                md:px-28 px-4 py-10 relative sm:justify-center z-10">
-                {user ? (
-                  <div className="profile-page">
-                    <h1>Your Profile Information</h1>
-                    <DisplayProfile session={user} />
-                  </div>
-                ) : (
-                  <h1>
-                    title="Logging you out now..."
-                    description="Give it a few moments, you're not logged in but you should be redirected soon. It's strange if you stay on this page for a while... Hmmmm, try reloading your page, but if the problem persists please contact us and mention me, Chris, in the subject of the email. One day I'll change this to a nice loading animation."
-                  </h1>
-                )}
-              </div>
+
             </div>
           </div>
         </section>

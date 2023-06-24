@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
+import Link from 'next/link';
 
 export const Footer: FC = ({ session }) => {
   const user = useUser();
@@ -9,41 +10,51 @@ export const Footer: FC = ({ session }) => {
     justify-center text-black font-light space-x-2">
       {user ? (
         <>
-          <a
+          <Link
             href="/profile"
-            className="text-black hover:text-opacity-50">
+            className="text-black hover:text-opacity-50"
+          >
             My Account
-          </a>
+          </Link>
           <p className="text-black">-</p>
         </>
           ) : null }
-      <a
+      <Link
         href="/home"
-        className="text-black hover:text-opacity-50">
+        className="text-black hover:text-opacity-50"
+      >
         Home
-      </a>
+      </Link>
       <p className="text-black">-</p>
-      <a
+      <Link
         href="/pricing"
-        className="text-black hover:text-opacity-50">
+        className="text-black hover:text-opacity-50"
+      >
         Pricing
-      </a>
+      </Link>
       <p className="text-black">-</p>
       <a
-        href="/contact"
-        className="text-black hover:text-opacity-50">
+        href="mailto: chris.chen347@gmail.com"
+        className="text-black hover:text-opacity-50"
+      >
         Contact
       </a>
       <p className="text-black">-</p>
       <a
-        href="/policy"
-        className="text-black hover:text-opacity-50">
+        href="/PrivacyPolicy.pdf"
+        className="text-black hover:text-opacity-50"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Policy
       </a>
       <p className="text-black">-</p>
       <a
-        href="/terms"
-        className="text-black hover:text-opacity-50">
+        href="/TermsAndConditions.pdf"
+        className="text-black hover:text-opacity-50"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Terms
       </a>
     </div>;

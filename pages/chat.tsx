@@ -58,7 +58,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hi there! I'm Land Laws AI, an assistant knowledgable in the zoning laws for your area. Don't bother with reading through those dense government documents, just ask me your questions regarding zoning information in Howell, NJ. I have access to plenty of those government documents and can parse them super easy for you. How can I help you?`
+        content: `Hello! Welcome to Zoning AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
       }
     ]);
   };
@@ -71,7 +71,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hi there! I'm Land Laws AI, an assistant knowledgable in the zoning laws for your area. Don't bother with reading through those dense government documents, just ask me your questions regarding zoning information in Howell, NJ. I have access to plenty of those government documents and can parse them super easy for you. How can I help you?`
+        content: `Hello! Welcome to Zoning AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
       }
     ]);
   }, []);

@@ -170,7 +170,7 @@ const HomePage: React.FC = () => {
                     mb-8
                     ">
                       <div className="flex flex-col items-center lg:ml-36">
-                        <a
+                        <Link
                         href="/login"
                         className="inline-flex
                           text-black hover:text-white
@@ -187,11 +187,11 @@ const HomePage: React.FC = () => {
                           font-light
                         ">
                             Give us a try
-                        </a>
+                        </Link>
                       </div>
                       <div className="flex flex-col items-center lg:mr-36">
-                        <a
-                        href="/login"
+                        <Link
+                        href="mailto: chris.chen347@gmail.com"
                         className="inline-flex
                           text-black hover:text-white
                           bg-white hover:bg-black
@@ -207,7 +207,7 @@ const HomePage: React.FC = () => {
                           font-light
                         ">
                             Contact us
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
