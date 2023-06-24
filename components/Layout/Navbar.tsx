@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
+import Link from 'next/link';
 
 export const Navbar: FC = ({session}) => {
   const user = useUser();
@@ -9,36 +10,36 @@ export const Navbar: FC = ({session}) => {
     <div className="flex h-[50px] sm:h-[70px] border-b-2 border-full-black
       py-2 px-2 sm:px-8 items-center justify-between bg-brand-secondary">
       <div className="font-bold text-4xl flex items-center">
-        <a
-          className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl xl:text-4xl"
+        <Link
           href="http://localhost:3000/"
+          className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl xl:text-4xl"
         >
           Talk Zoning
-        </a>
+        </Link>
       </div>
       <div className="font-bold text-2xl flex items-center space-x-4">
         {user ? (
           <>
-            <a
-              className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl"
+            <Link
               href="http://localhost:3000/chat"
+              className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl"
             >
               Chat
-            </a>
-            <a
-              className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl"
+            </Link>
+            <Link
               href="http://localhost:3000/profile"
+              className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl"
             >
               Profile
-            </a>
+            </Link>
           </>
         ) : (
-          <a
-            className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl"
+          <Link
             href="http://localhost:3000/login"
+            className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl"
           >
             Login/Register
-          </a>
+          </Link>
         )}
       </div>
     </div>

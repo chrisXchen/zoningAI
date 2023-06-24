@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/Layout/Navbar';
 import { Footer } from '@/components/Layout/Footer';
+import Link from 'next/link';
 
 
 const HomePage: React.FC = () => {
@@ -38,11 +39,15 @@ const HomePage: React.FC = () => {
                     flex-col sm:flex-row
                     justify-center lg:justify-start
                     ">
-                      <a
+                      <Link
                         href="/login"
-                        className="text-white inline-flex bg-black
-                          border-2 border-black duration-200 ease-in-out focus:outline-none
-                          hover:bg-white hover:shadow-none hover:text-black
+                        className="inline-flex
+                          text-black hover:text-white
+                          bg-white hover:bg-black
+                          border-2 border-black
+                          shadow-nb-assistant hover:shadow-none
+
+                          duration-200 ease-in-out focus:outline-none
                           rounded text-center transform transition
                           w-auto
                           px-20 py-4
@@ -50,14 +55,14 @@ const HomePage: React.FC = () => {
                           ml-3 mr-3
                           justify-center
                           font-light
-                          ">
-                            Try for free
-                      </a>
+                      ">
+                        Try for free
+                      </Link>
                     </div>
                   </div>
               </div>
 
-              <div className="w-full h-full aspect-square lg:mt-0 bg-lila-500 block">
+              <div className="w-full h-full aspect-square lg:mt-0 bg-white block">
                 <img alt="#" className="object-cover" src="/testImage2.png" />
               </div>
 
@@ -167,9 +172,13 @@ const HomePage: React.FC = () => {
                       <div className="flex flex-col items-center lg:ml-36">
                         <a
                         href="/login"
-                        className="text-white inline-flex bg-black
-                          border-2 border-black duration-200 ease-in-out focus:outline-none
-                          hover:bg-brand-tertiary hover:border-brand-tertiary hover:text-black
+                        className="inline-flex
+                          text-black hover:text-white
+                          bg-brand-tertiary hover:bg-black
+                          border-2 border-black hover:border-black
+                          shadow-nb-assistant hover:shadow-none
+
+                          duration-200 ease-in-out focus:outline-none
                           rounded text-center transform transition
                           w-auto
                           px-5 py-2
@@ -183,10 +192,13 @@ const HomePage: React.FC = () => {
                       <div className="flex flex-col items-center lg:mr-36">
                         <a
                         href="/login"
-                        className="text-black inline-flex bg-white
-                          border-2 rounded border-black
+                        className="inline-flex
+                          text-black hover:text-white
+                          bg-white hover:bg-black
+                          border-2 border-black hover:border-black
+                          shadow-nb-user hover:shadow-none
+
                           duration-200 ease-in-out focus:outline-none
-                          hover:bg-white hover:border-brand-tertiary hover:text-black
                           rounded text-center transform transition
                           w-auto
                           px-5 py-2
