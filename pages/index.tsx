@@ -1,4 +1,5 @@
 import { Navbar } from '@/components/Layout/Navbar';
+import { Footer } from '@/components/Layout/Footer';
 
 
 const HomePage: React.FC = () => {
@@ -50,7 +51,7 @@ const HomePage: React.FC = () => {
                           justify-center
                           font-light
                           ">
-                            Start saving time
+                            Try for free
                       </a>
                     </div>
                   </div>
@@ -64,21 +65,22 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
-        <section className="items-center relative w-full border-black flex border-b-2 bg-brand-tertiary">
+        <section className="items-center relative w-full flex bg-brand-secondary">
           <div className="items-center relative w-full mx-auto 2xl:max-w-7xl h-full">
             <div className="grid grid-rows-1 divide-black divide-y-2 2xl:border-x-2 border-black ">
-              <div>
+              <div className="flex flex-col items-center">
                 <h1 className="
                   text-black
-                  mt-14 mb-5 ml-10 mr-10
+                  mt-14 mb-5
+                  lg:ml-10 lg:mr-10
                   px-5 lg:px-20
                   py-8
                   text-center
                   text-5xl
                   bg-white
                   rounded border-2 border-black
-                  shadow-nb-assistant
-                  whitespace-pre-line
+                  shadow-[-5px_5px_0_black]
+                  w-10/12 sm:w-9/12
                 ">
                   Enjoy more time designing, less time digging through archives.
                 </h1>
@@ -105,7 +107,8 @@ const HomePage: React.FC = () => {
                       <img
                         alt="#"
                         src="/tmpSelectCity.png"
-                        className="object-cover m-4 md:w-3/4 border-2 border-black rounded shadow-nb-assistant"
+                        className="object-cover m-4 md:w-3/4
+                          border-2 border-black rounded shadow-[-5px_5px_0_black]"
                       />
                     </li>
                     <li className="flex flex-col items-center mt-4 mx-4">
@@ -121,24 +124,26 @@ const HomePage: React.FC = () => {
                       <img
                         alt="#"
                         src="/testImage2.png"
-                        className="object-cover m-4 md:w-3/4 border-2 border-black rounded shadow-nb-assistant"
+                        className="object-cover m-4 md:w-3/4
+                          border-2 border-black rounded shadow-[-5px_5px_0_black]"
                         />
                     </li>
                   </ol>
                 </div>
               </div>
               <div className="w-full bg-white">
-                <div className="flex flex-col items-center m-4">
+                <div className="flex flex-col items-center">
                   <h1 className="
                     text-black
-                    mt-10 ml-10 mr-10
-                    px-5 lg:px-20
+                    mt-10
+                    lg:ml-10 lg:mr-10
+                    sm:px-5 lg:px-20
                     py-8
                     text-center
                     text-5xl lg:text-7xl
-                    w-8/12
+                    w-10/12 sm:w-9/12
                   ">
-                    Uncomplicate Your Design Proces
+                    Uncomplicate Your Design Process
                   </h1>
                   <h2 className="
                     text-black
@@ -168,7 +173,7 @@ const HomePage: React.FC = () => {
                           rounded text-center transform transition
                           w-auto
                           px-5 py-2
-                          text-l lg:text-xl
+                          text-xl lg:text-2xl
                           justify-center
                           font-light
                         ">
@@ -179,13 +184,13 @@ const HomePage: React.FC = () => {
                         <a
                         href="/login"
                         className="text-black inline-flex bg-white
-                          border-2 rounded border-brand-tertiary
+                          border-2 rounded border-black
                           duration-200 ease-in-out focus:outline-none
-                          hover:bg-white hover:border-black hover:text-black
+                          hover:bg-white hover:border-brand-tertiary hover:text-black
                           rounded text-center transform transition
                           w-auto
                           px-5 py-2
-                          text-l lg:text-xl
+                          text-xl lg:text-2xl
                           justify-center
                           font-light
                         ">
@@ -199,6 +204,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     </>
   );

@@ -30,15 +30,15 @@ const ProfilePage: React.FC = () => {
         <section>
           <div className="border-black 2xl:max-w-7xl mx-auto 2xl:border-x-2">
             <div className="relative justify-center divide-black grid lg:divide-x-2
-              lg:grid-cols-2 lg:px-0 max-h-full md:px-12 overflow-hidden">
+              lg:grid-cols-2 lg:px-0 max-h-full md:px-12 overflow-hidden w-full">
               <div className="flex flex-col flex-1 lg:py-16 md:flex-none
-                md:px-18 px-6 py-10 relative sm:justify-center z-10">
-                <div className="flex flex-col rounded-lg px-3 sm:p-4 ">
+                md:px-18 py-10 relative sm:justify-center">
+                <div className="flex flex-col rounded-lg sm:p-4 ">
                 {user ? (
                   <div className="profile-page min-h-full mb-6">
                     <h2 className="text-black mt-6 text-2xl pb-2
-                      border-4 py-1 border-black mb-10
-                      px-2 bg-white text-center
+                      border-2 py-1 border-black mb-10
+                      px-2 bg-brand-secondary text-center
                       rounded-xl shadow-nb-assistant"
                     >
                       Your Profile

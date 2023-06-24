@@ -71,7 +71,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="email"
             name="email"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-brand-primary text-center shadow-nb-assistant
+              px-2 bg-brand-tertiary text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             Email
@@ -83,7 +83,7 @@ export default function DisplayProfile({ session }) {
           value={user.email}
           disabled
           className="text-black text-xl border-2 border-black
-          bg-brand-primary bg-opacity-50 px-5 mt-2
+          bg-brand-tertiary bg-opacity-40 px-5 mt-2
           rounded-bl-xl rounded-br-xl rounded-tr-xl w-auto"
         />
       </div>
@@ -93,7 +93,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="city"
             name="city"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-brand-primary text-center shadow-nb-assistant
+              px-2 bg-brand-tertiary text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             City
@@ -119,7 +119,7 @@ export default function DisplayProfile({ session }) {
             htmlFor="state"
             name="state"
             className="inline-block text-black text-2xl border-2 py-1 border-black
-              px-2 bg-brand-primary text-center shadow-nb-assistant
+              px-2 bg-brand-tertiary text-center shadow-nb-assistant
               rounded-tl-xl rounded-tr-xl rounded-br-xl"
           >
             State
@@ -157,6 +157,7 @@ export default function DisplayProfile({ session }) {
           buttonText="Sign Out"
           loading={loading}
           textSize="text-m sm:text-l"
+          bgColor="bg-brand-secondary"
           shadow="shadow-nb-assistant"
         />
       </div>

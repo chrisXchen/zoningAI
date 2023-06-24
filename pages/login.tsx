@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [loginView, setLoginView] = useState(true);
+  const [loginView, setLoginView] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
   const [loadedSession, setLoadedSession] = useState(false);
 
@@ -77,6 +77,9 @@ const LoginPage: React.FC = () => {
                         md:px-28 px-4 py-10 relative sm:justify-center z-10">
                     {loginView ? (
                       <div className="w-full mx-auto md:px-0 sm:px-4">
+                        <h2 className="text-black lg:text-2xl mt-6 text-xl pb-6">
+                            We're happy that you're using our product again! If you find any bugs, or have feature requests just let us know!
+                        </h2>
                         <div className="space-y-6">
                             <LoginForm
                                 onLogin={handleLogin}
@@ -102,7 +105,7 @@ const LoginPage: React.FC = () => {
                                 </div>
                             </div>
                             <div className="flex justify-center relative py-3">
-                                <span className="text-black text-lg bg-brand-primary
+                                <span className="text-black text-lg bg-brand-tertiary
                                             border-2 border-black px-2 rounded-lg">
                                     Looking to join?
                                 </span>
@@ -119,7 +122,7 @@ const LoginPage: React.FC = () => {
                                                 buttonText="Go to Register"
                                                 loading={false}
                                                 textSize="text-xl"
-                                                bgColor="bg-brand-tertiary bg-opacity-80"
+                                                bgColor="bg-brand-secondary"
                                               />
                                           </div>
                                     </div>
@@ -130,15 +133,15 @@ const LoginPage: React.FC = () => {
                     ) : (
                         <div className="w-full mx-auto md:px-0 sm:px-4">
                             <h2 className="text-black lg:text-2xl mt-6 text-xl pb-6">
-                                Join Architects, Construction Managers, Land Inspectors, Civil Engineers, and tons of others across America who are expediting their Zoning Ordinance research with AI.
+                                Designed just for you, join the revolution of architects who value their time.
                             </h2>
-                        <div className="space-y-6">
-                            <LoginForm
-                                onLogin={handleRegister}
-                                buttonText="Register"
-                                textSize="text-xl"
-                            />
-                        </div>
+                            <div className="space-y-6">
+                                <LoginForm
+                                    onLogin={handleRegister}
+                                    buttonText="Register"
+                                    textSize="text-xl"
+                                />
+                            </div>
                         {confirmation &&
                             <div className="border-black border-4 rounded-xl
                                 bg-white text-black text-center
@@ -159,7 +162,7 @@ const LoginPage: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-center relative">
-                                        <span className="text-black text-lg bg-brand-primary
+                                        <span className="text-black text-lg bg-brand-tertiary
                                             border-2 border-black px-2 rounded-lg">
                                             Already have an account?
                                         </span>
@@ -174,7 +177,7 @@ const LoginPage: React.FC = () => {
                                                 buttonText="Go to Login"
                                                 loading={false}
                                                 textSize="text-xl"
-                                                bgColor="bg-brand-tertiary bg-opacity-80"
+                                                bgColor="bg-brand-secondary"
                                               />
                                           </div>
                                     </div>

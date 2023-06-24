@@ -49,7 +49,7 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
       <textarea
         ref={textareaRef}
         className="min-h-[44px] pl-4 pr-12 py-2 w-full text-black
-          bg-brand-tertiary focus:outline-none focus:outline-none
+          bg-brand-secondary focus:outline-none focus:outline-none
           focus:ring-1 focus:ring-black focus:bg-white border-2
           border-full-black overflow-auto scrollbar-hide
           hover:bg-white bg-opacity-80"
