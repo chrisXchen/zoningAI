@@ -186,7 +186,7 @@ const HomePage: React.FC = () => {
                           justify-center
                           font-light
                         ">
-                            Give us a try
+                            Try Free
                         </Link>
                       </div>
                       <div className="flex flex-col items-center lg:mr-36">
