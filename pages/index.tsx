@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
                         text-xl lg:text-2xl
                         text-center lg:text-start
                         ">
-                        With Zoning AI, you can just select a locality and ask a question about its zoning laws to get an answer. Give it a try, it's that easy.
+                        With Just Zoning, you can just select a locality and ask a question about its zoning laws to get an answer. Give it a try, it's that easy.
                       </h2>
                     </div>
                     <div className="flex gap-3 mt-10

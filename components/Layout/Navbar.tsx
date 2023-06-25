@@ -14,7 +14,7 @@ export const Navbar: FC = ({session}) => {
           href="http://localhost:3000/"
           className="ml-2 hover:opacity-50 text-full-black text-sm sm:text-xl md:text-2xl xl:text-4xl"
         >
-          Talk Zoning
+          Just Zoning
         </Link>
       </div>
       <div className="font-bold text-2xl flex items-center space-x-4">

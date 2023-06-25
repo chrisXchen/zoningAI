@@ -1,4 +1,4 @@
-# Land Laws AI
+# Just Zoning
 
 A chatbot with access to local zoning documents, so you can ask questions related to ordinances and get back concise replies along with the pdf and page number the context for the reply was found on.
 Built off [Chatbot UI Lite](https://github.com/mckaywrigley/chatbot-ui-lite) and using Supabase Edge functions, Auth, and DB for vector and user storage.
@@ -7,7 +7,7 @@ No demo available yet.
 
 ## Features
 
-Land Laws AI implements a simple, chat interface via [Chatbot UI Lite](https://github.com/mckaywrigley/chatbot-ui-lite) that can be connected to your supabase client.
+Just Zoning implements a simple, chat interface via [Chatbot UI Lite](https://github.com/mckaywrigley/chatbot-ui-lite) that can be connected to your supabase client.
 
 Modify the chat interface in `components/Chat`.
 
@@ -39,6 +39,8 @@ Create a .env.local file in the root of the repo with your OpenAI API Key, and S
 OPENAI_API_KEY=<YOUR_KEY>
 SUPABASE_URL=<YOUR_URL>
 SUPABASE_ANON_KEY=<YOUR_ANON_KEY>
+NEXT_PUBLIC_SUPABASE_URL=<YOUR_URL>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<YOUR_ANON_KEY>
 ```
 
 **3. Run App**

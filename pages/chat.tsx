@@ -58,7 +58,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hello! Welcome to Zoning AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
+        content: `Hello! I'm Just Zoning's AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
       }
     ]);
   };
@@ -71,7 +71,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hello! Welcome to Zoning AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
+        content: `Hello! I'm Just Zoning's AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
       }
     ]);
   }, []);
@@ -79,10 +79,10 @@ const ChatPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Land Laws AI</title>
+        <title>Just Zoning - Chat</title>
         <meta
           name="description"
-          content="A simple chatbot for OpenAI's chat model and government zoning guidelines for Howell, New Jersey."
+          content="A chatbot to extract zoning information for the selected locality."
         />
         <meta
           name="viewport"
