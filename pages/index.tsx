@@ -1,12 +1,58 @@
 import { Navbar } from '@/components/Layout/Navbar';
 import { Footer } from '@/components/Layout/Footer';
 import Link from 'next/link';
+import React from "react";
+import Head from "next/head";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../components/CheckoutForm";
 
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// This is your test publishable API key.
+const stripePromise = loadStripe(`${process.env.NEXT_STRIPE_PUBLISHABLE_KEY_TEST}`);
 
 const HomePage: React.FC = () => {
+  const [clientSecret, setClientSecret] = React.useState("");
+
+  React.useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    fetch("/api/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+
+    console.log(clientSecret)
+  }, []);
+
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
 
   return (
     <>
+      <Head>
+        <title>My Zoning AI</title>
+        <meta
+          name="description"
+          content="Home page for a chatbot to extract zoning information for the selected locality."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <link
+          rel="icon"
+          href="/myzaiFavicon2.png"
+        />
+      </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <section className="items-center relative w-full border-black flex border-b-2">
@@ -24,7 +70,7 @@ const HomePage: React.FC = () => {
                         text-6xl lg:text-7xl
                         text-center lg:text-start
                         ">
-                        An architect's zoning masterpiece.
+                        Where zoning meets AI
                       </h1>
                       <h2 className="text-black font-light
                         px-3
@@ -32,7 +78,7 @@ const HomePage: React.FC = () => {
                         text-xl lg:text-2xl
                         text-center lg:text-start
                         ">
-                        With Just Zoning, you can just select a locality and ask a question about its zoning laws to get an answer. Give it a try, it's that easy.
+                        With My Zoning AI, you can just select a locality and ask a question about its zoning laws to get an answer. Give it a try, it's that easy.
                       </h2>
                     </div>
                     <div className="flex gap-3 mt-10
@@ -63,7 +109,7 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="w-full h-full aspect-square lg:mt-0 bg-white block">
-                <img alt="#" className="object-cover" src="/testImage2.png" />
+                <img alt="#" className="object-cover" src="/myzaiDemo3.gif" />
               </div>
 
 
@@ -87,7 +133,7 @@ const HomePage: React.FC = () => {
                   shadow-[-5px_5px_0_black]
                   w-10/12 sm:w-9/12
                 ">
-                  Enjoy more time designing, less time digging through archives.
+                  Enjoy more time doing your thing, less time digging through archives.
                 </h1>
                 <div className="px-12 lg:px-32">
                   <ol className="
@@ -111,7 +157,7 @@ const HomePage: React.FC = () => {
                       </h3>
                       <img
                         alt="#"
-                        src="/tmpSelectCity.png"
+                        src="/myzaiSampleSelectLocation.png"
                         className="object-cover m-4 md:w-3/4
                           border-2 border-black rounded shadow-[-5px_5px_0_black]"
                       />
@@ -128,7 +174,7 @@ const HomePage: React.FC = () => {
                       </h3>
                       <img
                         alt="#"
-                        src="/testImage2.png"
+                        src="/myzaiSampleChat.png"
                         className="object-cover m-4 md:w-3/4
                           border-2 border-black rounded shadow-[-5px_5px_0_black]"
                         />
@@ -148,7 +194,7 @@ const HomePage: React.FC = () => {
                     text-5xl lg:text-7xl
                     w-10/12 sm:w-9/12
                   ">
-                    Uncomplicate Your Design Process
+                    Uncomplicate Your Process
                   </h1>
                   <h2 className="
                     text-black
@@ -160,7 +206,7 @@ const HomePage: React.FC = () => {
                     w-8/12
                     font-light
                   ">
-                    Whether you require faster access, efficient research, or just a simpler approach to zoning laws, our app streamlines your architectural projects. You don't have to be a legal expert or understand the intricacies of zoning regulations. You just need to leverage your expertise and let our app handle the rest.
+                    Whether you're looking for faster access, efficient research, or just a simpler approach to zoning laws, our app streamlines your projects. You don't have to be a legal expert or understand the intricacies of zoning regulations. You just need to leverage your expertise and let our app handle the rest.
                   </h2>
                   <div className="w-10/12 md:w-1/2">
                     <div className="

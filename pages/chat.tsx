@@ -4,10 +4,34 @@ import { Navbar } from "@/components/Layout/Navbar";
 import { Message } from "@/types";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import { supabaseClient } from '../utils/PublicSupabaseClient'
 
 const ChatPage: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [selectedLocality, setSelectedLocality] = useState('');
+  const [localities, setLocalities] = useState([]);
+
+  const handleLocalityChange = (event) => {
+      setSelectedLocality(event.target.value);
+  };
+
+  useEffect(() => {
+    const loadLocalities = async () => {
+      const { data, error } = await supabaseClient.from('unique_city_state').select();
+      if (error) {
+        console.error(error);
+        return;
+      }
+      const newLocalities = data.map(obj => ({ label: obj.city + ', ' + obj.state, value: obj }));
+      setLocalities(newLocalities);
+      if(newLocalities.length > 0) {
+        setSelectedLocality(newLocalities[0]);
+      }
+    }
+
+    loadLocalities();
+  }, []);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -17,7 +41,7 @@ const ChatPage: React.FC = () => {
 
   const handleSend = async (message: Message) => {
     const updatedMessages = [...messages, message];
-
+    console.log(selectedLocality)
     setMessages(updatedMessages);
     setLoading(true);
 
@@ -27,7 +51,9 @@ const ChatPage: React.FC = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        text: message.content
+        text: message.content,
+        city: selectedLocality.value.city,
+        state: selectedLocality.value.state
       })
     });
 
@@ -41,6 +67,12 @@ const ChatPage: React.FC = () => {
     if (!data) {
       return;
     }
+    let full_reply;
+    if (data.found_at.length === 0) {
+      full_reply = data.text
+    } else {
+      full_reply = `${data.text}\n\nPage: ${data.found_at[0].page}\nURL: ${data.found_at[0].url}${data.found_at.length > 1 ? '\n\nPage: ' + data.found_at[1].page + '\nURL: ' + data.found_at[1].url: ''}`
+    }
 
     setLoading(false);
 
@@ -48,7 +80,7 @@ const ChatPage: React.FC = () => {
       ...messages,
       {
         role: "assistant",
-        content: data.text
+        content: full_reply
       }
     ]);
   };
@@ -58,7 +90,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hello! I'm Just Zoning's AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
+        content: `Welcome to My Zoning AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers.\n\nI try to be as accurate as possible, but please remember to use your judgement and cross-check my answers.\n\nHow may I assist you today?`
       }
     ]);
   };
@@ -71,7 +103,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       {
         role: "assistant",
-        content: `Hello! I'm Just Zoning's AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers. I try to be as accurate as possible, but please remember to use your judgement and cross-check my answers. How may I assist you today?`
+        content: `Welcome to My Zoning AI, your intelligent guide to zoning laws. I'm here to swiftly decode legal jargon and provide clear answers.\n\nI try to be as accurate as possible, but please remember to use your judgement and cross-check my answers.\n\nHow may I assist you today?`
       }
     ]);
   }, []);
@@ -79,7 +111,7 @@ const ChatPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Just Zoning - Chat</title>
+        <title>My Zoning AI - Chat</title>
         <meta
           name="description"
           content="A chatbot to extract zoning information for the selected locality."
@@ -90,7 +122,7 @@ const ChatPage: React.FC = () => {
         />
         <link
           rel="icon"
-          href="/favicon.ico"
+          href="/myzaiFavicon2.png"
         />
       </Head>
 
@@ -104,6 +136,9 @@ const ChatPage: React.FC = () => {
               loading={loading}
               onSend={handleSend}
               onReset={handleReset}
+              selectedLocality={selectedLocality}
+              handleLocalityChange={handleLocalityChange}
+              localities={localities}
             />
             <div ref={messagesEndRef} />
           </div>

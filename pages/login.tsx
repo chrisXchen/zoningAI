@@ -4,6 +4,7 @@ import { Footer } from "@/components/Layout/Footer";
 import { Navbar } from '@/components/Layout/Navbar';
 import { LoginForm } from '@/components/Form/LoginForm';
 import FormButton from '@/components/Form/FormButton';
+import Head from "next/head";
 import { useUser, useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 const LoginPage: React.FC = () => {
@@ -67,7 +68,22 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-    <div className="flex flex-col h-screen">
+      <Head>
+        <title>My Zoning AI - Register</title>
+        <meta
+        name="description"
+        content="Registration and Login page for a chatbot to extract zoning information for the selected locality."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <link
+          rel="icon"
+          href="/myzaiFavicon2.png"
+        />
+      </Head>
+        <div className="flex flex-col h-screen">
         <Navbar />
         <section>
             <div className="border-black 2xl:max-w-7xl mx-auto 2xl:border-x-2">

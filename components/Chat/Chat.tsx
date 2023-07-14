@@ -4,6 +4,8 @@ import { ChatInput } from "./ChatInput";
 import { ChatLoader } from "./ChatLoader";
 import { ChatMessage } from "./ChatMessage";
 import { ResetChat } from "./ResetChat";
+import Dropdown from '../Form/LocalitySelect';
+import { useState } from 'react';
 
 interface Props {
   messages: Message[];
@@ -12,11 +14,19 @@ interface Props {
   onReset: () => void;
 }
 
-export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
+export const Chat: FC<Props> = ({ messages, loading, onSend, onReset, selectedLocality, handleLocalityChange, localities }) => {
   return (
     <>
-      <div className="flex flex-row justify-between items-center mb-4 sm:mb-8 ml-3">
+      <div className="
+        flex flex-row justify-between items-center
+        mb-4 sm:mb-8 ml-3 mr-3
+        gap-2 sm:gap-12 md:gap-24 lg:gap-52">
         <ResetChat onReset={onReset} />
+        <Dropdown
+            options={localities}
+            value={selectedLocality}
+            onChange={handleLocalityChange}
+        />
       </div>
 
       <div className="flex flex-col rounded-lg px-3 sm:p-4

@@ -34,7 +34,7 @@ export const LoginForm: React.FC<Props> = ({ onLogin, buttonText, textSize }) =>
             </label>
             <input
               type="email"
-              placeholder="tonymontana@scarface.com"
+              placeholder="juliuscaesar@rome.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

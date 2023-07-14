@@ -4,6 +4,7 @@ import { Footer } from '@/components/Layout/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
+import Head from "next/head";
 
 const ProfilePage: React.FC = () => {
   const supabase = useSupabaseClient();
@@ -25,6 +26,21 @@ const ProfilePage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>My Zoning AI - Profile</title>
+        <meta
+          name="description"
+          content="Profile page for a chatbot to extract zoning information for the selected locality."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <link
+          rel="icon"
+          href="/myzaiFavicon2.png"
+        />
+      </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <section>
